@@ -10,6 +10,12 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *billAmountTextField;
+
+@property (weak, nonatomic) IBOutlet UISlider *numberOfPeopleSlider;
+
+ @property (weak, nonatomic) IBOutlet UILabel *calculatedLabel;
+
 @end
 
 @implementation ViewController
@@ -23,6 +29,19 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)splitBillButton:(UIButton *)sender {
+    
+    NSDecimalNumber *billAmount = [NSDecimalNumber decimalNumberWithString:self.billAmountTextField.text];
+    float calculateAmount  = [billAmount floatValue] / self.numberOfPeopleSlider.value;
+    self.calculatedLabel.text = [NSString stringWithFormat:@"split bill for %.0f is $%.2f",self.numberOfPeopleSlider.value ,calculateAmount];
+
+    [self.view endEditing:YES];
+    
+}
+- (IBAction)roundUp:(UISlider *)sender {
+    self.numberOfPeopleSlider.value = roundf(self.numberOfPeopleSlider.value);
 }
 
 

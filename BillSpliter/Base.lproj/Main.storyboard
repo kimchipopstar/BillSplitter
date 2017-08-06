@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,68 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter total" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V4T-n6-0fK">
+                                <rect key="frame" x="18" y="1.5" width="340" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="D4r-HX-tZI"/>
+                                    <constraint firstAttribute="height" constant="30" id="p8o-iJ-SJT"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="wLj-jh-hji">
+                                <rect key="frame" x="15.5" y="235" width="344" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="61Q-KR-lEK"/>
+                                    <constraint firstAttribute="height" constant="30" id="WEp-8c-jNs"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="roundUp:" destination="BYZ-38-t0r" eventType="valueChanged" id="rq4-Yi-iZf"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0k0-6W-Uwd">
+                                <rect key="frame" x="159.5" y="402" width="55" height="30"/>
+                                <state key="normal" title="Split Bill"/>
+                                <connections>
+                                    <action selector="splitBillButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MAt-xB-K36"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMc-ad-nYQ">
+                                <rect key="frame" x="17.5" y="635.5" width="340" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="Dj3-uQ-Pbt"/>
+                                    <constraint firstAttribute="height" constant="30" id="KZs-fe-qff"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="V4T-n6-0fK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.05" id="53V-G7-1j3"/>
+                            <constraint firstItem="0k0-6W-Uwd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.25" id="Fr0-7J-kxi"/>
+                            <constraint firstItem="0k0-6W-Uwd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HRG-nY-my2"/>
+                            <constraint firstItem="EMc-ad-nYQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.95" id="LYU-WY-0No"/>
+                            <constraint firstItem="wLj-jh-hji" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.75" id="OvH-Uo-aLq"/>
+                            <constraint firstItem="EMc-ad-nYQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WL6-uM-yGS"/>
+                            <constraint firstItem="V4T-n6-0fK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uym-ed-xbZ"/>
+                            <constraint firstItem="wLj-jh-hji" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wRf-f0-6No"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="billAmountTextField" destination="V4T-n6-0fK" id="JGZ-cG-oDI"/>
+                        <outlet property="calculatedLabel" destination="EMc-ad-nYQ" id="zwA-IX-ory"/>
+                        <outlet property="numberOfPeopleSlider" destination="wLj-jh-hji" id="mGv-4m-p3s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="102" y="148"/>
         </scene>
     </scenes>
 </document>
